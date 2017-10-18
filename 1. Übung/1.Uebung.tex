@@ -48,7 +48,7 @@
 \begin{document}
 	
 	\title{1. Übung}
-	\author{Timo Bergerbusch 344408 \& Marc Burani-Mc 1337-GG}
+	\author{Timo Bergerbusch 344408 \& Marc Burian 344300}
 	\date{\specialdate\today}
 	\maketitle
 	
@@ -76,11 +76,13 @@
 
 	\section{Aufgabe 2}
 	\begin{enumerate}[label=(\alph*)]
-		\item 
+		\item Einführen einer Variablen $x_{i,j}$, $0\le 1,j \le |V|$, wobei 0 den Start beschreibt. Diese Variable deutet an, dass man die Strecke von Vertex $i$ zu Vertex $j$ nimmt. Dann wäre die Zielfunktion: 
+				 $ $
+			
 		\item \textbf{symetrisches TSP}: Der Graph hat ungerichtete Kanten. Somit dauert eine Reise von Stadt A zu Stadt B genauso lange wie eine Reise von Stadt B zu Stadt A.\newline
 		\textbf{asymetrisches TSP}: Der Graph hat gerichtete Kanten. Somit ist es möglich, dass eine Reise von Stadt A zu Stadt B die Dauer $d$ hat und die Reise von Stadt B zu Stadt A die Dauer $d^\prime$ mit $d \neq d^\prime$\newline
 		In der gegebenen Probleminstanz handelt es sich um eine symmetrische Matrix.
-		\item 
+		\item vielleicht untere Schrank $U:= |V|+2$? Die beschreibt die Strecke vom Start zu einem Vertex, anschließend würde jede Vertex solange undverbundene ex. zum nächsten Vertex gehen, welche für die Schranke die Entfernung 1 hat und zum Schluss vom letzten Vertex zurück zum Start. Unter der Annahme, dass zwei Vertex nicht am selben Standort sein können ist das das kleinst mögliche TSP.
 		\item
 		\item
 	\end{enumerate}
