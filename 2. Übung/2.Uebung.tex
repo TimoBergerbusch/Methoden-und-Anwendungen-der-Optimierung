@@ -49,7 +49,7 @@
 
 \begin{document}
 	
-	\title{1. Übung}
+	\title{2. Übung}
 	\author{Timo Bergerbusch 344408 \& Marc Burian 344300}
 	\date{\specialdate\today}
 	\maketitle
@@ -168,7 +168,8 @@
 			\color{cyan}cyan & b & d & 45 & 286-51+58+45=338 & 286-63+45+82=350 & (a,d) & (a,b),(b,d) & 338\\
 		\end{tabular}
 	\end{figure}
-		
+	
+	
 	\subsection{c)}
 	
 	\begin{minipage}{0.45\textwidth}
@@ -242,6 +243,7 @@
 		\end{tabular}
 	\end{figure}
 
+	Richtige Reihenfolge des Einfügens: a,b,c,e,f,d
 	\subsection{d)}
 		\begin{itemize}
 			\item \textit{Nearest-Neighbor}: $\frac{325}{323}=1.0062$
@@ -272,7 +274,7 @@
 			\node[above right of = b] {(a,e,d,f,c,b)};	
 %			%	a->d	f->c
 			\node[right=.2cm of c] {(a,f,e,d,c,b)};	
-%			%	a->d	f->c			
+%			%	a->d	b->c			
 			\node[below right of = d] {(a,c,f,e,d,b)};			
 %			%	d->e	f->c
 			\node[below right of = e] {(a,d,f,e,c,b)};			
@@ -291,6 +293,10 @@
 			}}
 			\endgroup
 		\end{tikzpicture}
+		
+		(a,d,f,e,c,b) ist das beste. ( verbesserung um -2)\\
+		Von da nochmal eine 2-Opt-Nachbarschaft\\
+		es gibt keine Verbesserung: hier bleiben
 		
 		\newpage
 		\vspace*{-2cm}
