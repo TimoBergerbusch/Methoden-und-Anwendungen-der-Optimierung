@@ -40,6 +40,8 @@
 \usepackage{datetime}
 \usepackage{ifthen}
 \newdateformat{specialdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+\usepackage[ngerman]{babel}
+\usepackage{rotating}
 
 
 \newcommand{\Q}{\mathbb{Q}}
@@ -140,6 +142,55 @@
 	\section{Aufgabe}
 	\subsection{a)}
 	
+	\begin{figure}[H]
+		\centering
+		\begin{tabular}{c | c c c c c c c c}
+			$i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+			$w_i$ & 7 & 4 & 3 & 6 & 1 & 5 & 4 & 2\\
+		\end{tabular} \\
+	
+		\begin{tabular}{c || c  c | c  c | c c | c c | c c}
+			$bin/it.$ &  \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} \\ 
+			 & $M_1$ & Rest & $M_2$ & Rest & $M_3$ & Rest & $M_4$ & Rest & $M_5$ & Rest \\ \hline\hline
+			0 & $\emptyset$ & 8 &  $\emptyset$ & 8 &  $\emptyset$ & 8 &  $\emptyset$ & 8 &  $\emptyset$ & 8  \\
+			1 & $\{1\}$ & 1	 	& $ $ & $ $ 		& $ $ & $ $ 		& $ $ & $ $ 	& $ $ & $ $ 	 \\
+			2 & $ $ 	& $ $ 	& $\{2\}$ & 4 		& $ $ & $ $ 		& $ $ & $ $ 	& $ $ & $ $ 	 \\
+			3 & $ $ 	& $ $ 	& $\{2,3\} $ & 1	& $ $ & $ $ 		& $ $ & $ $ 	& $ $ & $ $ 	 \\
+			4 & $ $ 	& $ $ 	& $ $ & $ $ 		& $\{4\} $ & 2 		& $ $ & $ $ 	& $ $ & $ $ 	 \\
+			5 & $\{1,5\}$ 	& 0	& $ $ & $ $ 		& $ $ & $ $ 		& $ $ & $ $ 	& $ $ & $ $ 	 \\
+			6 & $ $ 	& $ $ 	& $ $ & $ $ 		& $ $ & $ $ 		& $\{6\} $ & 3 	& $ $ & $ $ 	 \\
+			7 & $ $ 	& $ $ 	& $ $ & $ $ 		& $\{4,8\} $ & 0 		& $ $ & $ $ 	& $\{7\}$ & 4 	 \\
+			8 & $ $ 	& $ $ 	& $ $ & $ $ 		& $ $ & $ $ 		& $ $ & $ $ 	& $ $ & $ $ 	 \\ \hline\hline
+			$\sum$ & $\{1,5\}$ & 0 & $\{2,3\}$ & 1 & $\{4,8\}$ & 0 & $\{6\}$& 3 & $\{7\}$ & 4 \\
+		\end{tabular}
+	\end{figure}
+	
+	\subsection{b)}
+	Nachdem sortieren sieht die Tabelle wie folgt aus:
+	\begin{figure}[H]
+		\centering
+		\begin{tabular}{c | c c c c c c c c}
+			$i$   & 1 & 4 & 6 & 2 & 7 & 3 & 8 & 5 \\ \hline
+			$w_i$ & 7 & 6 & 5 & 4 & 4 & 3 & 2 & 1 \\
+		\end{tabular}
+	
+	
+		\begin{tabular}{c || c  c | c  c | c c | c c }
+			$bin/it.$ &  \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} \\ 
+			& $M_1$ & Rest & $M_2$ & Rest & $M_3$ & Rest & $M_4$ & Rest  \\ \hline\hline
+			0 & $\emptyset$ & 8 &  $\emptyset$ & 8 &  $\emptyset$ & 8 &  $\emptyset$ & 8   \\
+			1 & $\{1\}$ & 1	& $ $ & $ $ 		& $ $ & $ $ 		& $ $ & $ $\\
+			2 & $ $ & $ $ 	& $\{4\}$ & 2 		& $ $ & $ $ 		& $ $ & $ $\\
+			3 & $ $ & $ $ 	& $ $ & $ $			& $\{6\} $ & 3 		& $ $ & $ $\\
+			4 & $ $ & $ $ 	& $ $ & $ $ 		& $ $ & $ $  		& $\{2\} $ & 4\\
+			5 & $ $ & $ $	& $ $ & $ $ 		& $ $ & $ $ 		& $\{2,7\} $ & 0\\
+			6 & $ $ & $ $ 	& $ $ & $ $ 		& $\{6,3\}$ & 0 		& $ $ & $ $\\
+			7 & $ $ & $ $ 	& $\{4,8\} $ & 0 		& $ $ & $ $  		& $ $ & $ $\\
+			8 & $\{1,5\} $ & 0 	& $ $ & $ $ 		& $ $ & $ $ 		& $ $ & $ $\\ \hline\hline
+			$\sum$ & $\{1,5\}$ & 0 & $\{4,8\}$ & 0 & $\{6,3\}$ & 0 & $\{2,7\}$& 0 \\
+		\end{tabular}
+	\end{figure}
+	Somit ergibt sich die min. Anzahl der Bins für die \textit{Best-Fit-Decreasing}-Heuristik bei 4.
 \end{document}
 
 
