@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,calc,arrows,patterns,external,shapes.callouts,graphs}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{datetime}
+\usepackage{ifthen}
+\newdateformat{specialdate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+\usepackage[ngerman]{babel}
+\usepackage{rotating}
+
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+	
+	\title{7. Übung}
+	\author{Timo Bergerbusch 344408 \& Marc Burian 344300}
+	\date{\specialdate\today}
+	\maketitle
+	
+	
+	\section*{Aufgabe 1}
+	\subsection*{a)}
+		\hspace{1cm}$min\>C_j - d_j$
+	\subsection*{b)}
+		Für eine aktuelle Reihenfolge an Abarbeitungen ist der \textbf{swap}-Operator analog zum \textbf{exchange}-Operator aus Übungsblatt 4.
+		Bei einer \textbf{swap}-Operation auf den Jobs $v,w$ tauschen den Startzeitpunkt von diesen Jobs.
+		Demnach:
+		
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				\node[circle,draw, label= west:$v$] (v) {};
+				\node[circle,draw, above = of v, double, label= west:$v_+$] (v+) {};
+				\node[circle, above = 0.3cm of v+] (n1) {};
+				\node[circle,draw, below = of v, double, label= west:$v_-$] (v-) {};
+				\node[circle, below = 0.3cm of v-] (n2) {};
+				
+				\node[circle,draw, right = of v, label= east:$w_-$] (w) {};
+				\node[circle,draw, above = of w, double, label= east:$w$] (w+) {};
+				\node[circle, above = 0.3cm of w+] (n3) {};
+				\node[circle,draw, below = of w, double, label= east:$w_{=}$] (w-) {};
+				\node[circle, below = 0.3cm of w-] (n4) {};
+				
+				\draw[thick, ->, bend angle=-30, bend right, dashed] (v-) to (v);
+				\draw[thick, ->, bend angle=-30, bend right, dashed] (v) to (v+);
+				
+				\draw[thick, ->, bend angle=30, bend right, dashed] (w-) to (w);
+				\draw[thick, ->, bend angle=30, bend right, dashed] (w) to (w+);
+				
+				\draw[thick, ->] (w-) to (v);
+				\draw[thick, ->] (v) to (w+);
+				\draw[thick, ->] (v-) to (w);
+				\draw[thick, ->] (w) to (v+);
+				
+				\draw[thick, ->,densely dotted] (v+) to (n1);
+				\draw[thick, ->,densely dotted] (w+) to (n3);
+				\draw[thick, ->,densely dotted] (n2) to (v-);
+				\draw[thick, ->,densely dotted] (n4) to (w-);
+			\end{tikzpicture}
+		\end{figure}
+%	\newpage
+	\subsection*{c)}
+		Ein Relocate-Operator entspricht hierbei einem reinen intra-Relocate da wird nur eine Maschine zur Ausführung besitzen. Somit nehmen wir einen Job $j$ zu einem geplanten Zeitpunkt $t_0$ raus lassen alle folgenden Jobs dementsprechend früher starten und fügen $j$ an Zeitpunkt $t_1$ wieder hinzu. Wichtig dabei ist, dass weder $t_0 < t_1$ noch $t_1 < t_0$ gelten muss. 
+		
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				\node[circle, draw, label= west:$v$] (v) {};
+				\node[circle, draw, above = of v, double, label= east:$v_+$] (v+) {};
+				\node[circle, above = 0.3cm of v+] (n1) {};
+				\node[circle, draw, below = of v, double, label= east:$v_-$] (v-) {};
+				\node[circle, below = 0.3cm of v-] (n2) {};
+				
+				\node[circle, draw, above right = .5cm and 1cm of v, double, label= east:$w$] (w) {};
+				\node[circle, above = 0.3cm of w] (n3) {};
+				\node[circle, draw, below = of w, double, label= east:$w_{-}$] (w-) {};
+				\node[circle, below = 0.3cm of w-] (n4) {};
+				
+				\draw[thick, ->, dashed] (v-) to (v);
+				\draw[thick, ->, dashed] (v) to (v+);
+				
+				\draw[thick, ->, bend angle=30, bend right, dashed] (w-) to (w);
+				
+				\draw[thick, ->, bend angle=-45, bend right] (v-.west) to (v+.west);
+				
+				\draw[thick, ->] (w-) to (v);
+				\draw[thick, ->] (v) to (w);
+				
+				\draw[thick, ->,densely dotted] (v+) to (n1);
+				\draw[thick, ->,densely dotted] (w) to (n3);
+				\draw[thick, ->,densely dotted] (n2) to (v-);
+				\draw[thick, ->,densely dotted] (n4) to (w-);
+			\end{tikzpicture}
+		\end{figure}
+	\subsection*{d)}
+		Startzeitpunkt des Jobs $j$: $S_j= \begin{cases}
+		0 & \text{no Job before } j\\
+		S_i & i \text{ is the Job before } j\\
+		\end{cases}$ \\
+		Tatsächlicher Fertigstellungszeitpunkt eines Jobs $j$: $C_1=s_1+p_1$ \\
+		Kosten eines Jobs $j$: $K_0=\begin{cases}
+		C_j-d_j & C_j>d_j \\
+		0 & \text{sonst}\\
+		\end{cases}$\newline
+		\begin{tabular}{c | c || ccc || ccc || ccc || ccc ||c }
+			It. & Reihenfolge & \multicolumn{3}{|c||}{Job $j_0$} & \multicolumn{3}{|c||}{Job $j_1$} & \multicolumn{3}{|c||}{Job $j_2$} & \multicolumn{3}{|c||}{Job $j_3$} & $\sum_{j\in \text{Jobs}} K$\\
+			& ($j_0,j_1,j_2,j_3$) &  $S_{j_0}$ & $C_{j_0}$ & $K_{j_0}$ & $S_{j_1}$ & $C_{j_1}$ & $K_{j_1}$ & $S_{j_2}$ & $C_{j_2}$ & $K_{j_2}$ & $S_{j_3}$ & $C_{j_3}$ & $K_{j_3}$ & \\ \hline
+			0 & (0,1,2,3) & 0 & 4 & 0 & 4 & 13 & 9 & 13 & 15 & 7 & 15 & 18 & 11 & 27\\
+			1.LS & (1,0,2,3) & 0 & 9 & 5 & 9 & 13 & 3 & 13 & 15 & 7 & 15 & 18 & 11 & 26\\
+			1.Per & (0,2,1,3) & 0 & 4 & 0 & 4 & 6 & 0 & 6 & 15 & 11 & 15 & 18 & 11 & 22\\
+			2.LS & (2,0,1,3) & 0 & 2 & 0 & 2 & 6 & 0 & 6 & 15 & 11 & 15 & 18 & 11 & 22\\
+			2.Per & (0,1,2,3) & 0 & 4 & 0 & 4 & 13 & 9 & 13 & 15 & 7 & 15 & 18 & 11 & 27\\
+		\end{tabular}\\
+	
+		\subsubsection*{Zu Iteration 1:}
+		\textbf{Lokale Suche (Erstensuche)}: Swap von Jobs an Pos. 0=0 und 1=1 an\\
+		\textbf{Pertubation}: Relocate von Jobs an Pos 0=1 und 3=3\\
+		\textbf{Akzeptanzkriterium}: $22 < 27 \Rightarrow$ Akzeptiere 
+		
+		\subsubsection*{Zu Iteration 1:}
+		\textbf{Lokale Suche (Erstensuche)}: Swap von Jobs an Pos. 0=0 und 1=2 an\\
+		\textbf{Pertubation}: Relocate von Jobs an Pos 0=2 und 3=3\\
+		\textbf{Akzeptanzkriterium}: $27 \not < 22 \Rightarrow$  Ablehnen
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
