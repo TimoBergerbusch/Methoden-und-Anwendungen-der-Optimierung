@@ -38,64 +38,6 @@
 	\tableofcontents
 	\newpage
 	
-	\section{Fachbegriffe}
-		\begin{itemize}
-			\item \textbf{optimal} \label{optimal}\label{Optimum}: zulässig und bestmöglich
-			\item \textbf{Simulation} \label{Simulation}: Durchführung von Experimenten anhand von Modellen
-			\item \textbf{Heuristik} \label{Heuristik}: 
-				\begin{itemize}
-					\item[Def.:] Algorithmen die ein geg. Optimierungsproblem mit akzeptablem Aufwand in möglichst gut zu lösen versuchen
-					\item[Kennzeichen:] Ausschluss potentieller Lösungen, fehlende Lösungsgarantie, nicht-willkürliche Lösungssuche(, künstliche Stoppregel)
-					\item[Prinzipien] Allgemeinheit, Effizienz, Optimalität	\\
-						\begin{tikzpicture}
-							\node[rectangle, draw, rounded corners] (allg) {Allgemeinheit};
-							\node[rectangle, draw, rounded corners, below right = 3cm of allg] (opt) {Optimalität};
-							\node[rectangle, draw, rounded corners, above right = 3cm of opt] (eff) {Effizienz};
-							
-							\path[thick]
-								(allg) edge node[sloped, align = left] {exaktes\\ Verfahren} (opt)
-								(allg) edge node[anchor=south] {Heuristik} (eff)
-								(opt) edge node[sloped, align = left] {Verfahren für \\ spez. Instanz} (eff);
-						\end{tikzpicture}
-					\item[Klassifikation] nach Stopp-Regel:
-						\begin{enumerate}
-							\item[Eröffnungsv.] generieren einer (mögl. guten) Lösung. Terminierung sobald Lösung gefunden
-							\item[Verbesserungsv.] Start mit zulässiger Lösung und verbessern, bis Stopp-Krit. erfüllt ist
-							\item[Zsm.-gesezte V.] Kombination von Eröffnungs- und Verbesserungsv.
-						\end{enumerate} 
-				\end{itemize}
-			\item \textbf{Algorithmus} \label{Algorithmus}: 
-				\begin{itemize}
-					\item[Def.:] Ein Algorithmus ist eine genau definierte Verarbeitungsvorschrift zur Lösung eines Problems oder einer bestimmten Art von Problemen. Typischerweise wird ein Algorithmus durch eine endliche Folge von Anweisungen beschrieben, die nacheinander ausgeführt und oft in festgelegter Weise wiederholt werden
-					\item[Eig.:] eindeutig, allgemein, ausführbar, endlich
-				\end{itemize}
-			\item \textbf{exakter Algorithmus} \label{exakter Algorithmus}: ein \hyperref[Algorithmus]{Algorithmus}, welcher für jede Instanz eines Optimierungsproblems ein \hyperref[Optimum]{Optimum} bestimmt
-			\item \textbf{Laufzeitkomplexität}: \hyperref[Algorithmus]{Alg. A} ist in $\mathcal{O}(f(n)) \text{, gdw } \exists k_1,k_2$ konst., sodass $\text{time}_A(P) \le k_1+k_2 f(n)$ für alle Instanzen $P$ mit $|P|=n$
-			\item \textbf{effizienter Algorithmus} \label{effizienter Algorithmus}: A ist effizient gdw $A \in \mathcal{O}(f(n))$
-			\item \textbf{$\mathcal{P}$} \label{P}: alle Probleme mit einem deterministischen \hyperref[effizienter Algorithmus]{effizienten Algorithmus}.
-			\item \textbf{$\mathcal{NP}$} \label{NP}: alle Probleme mit einem nicht-deterministischen \hyperref[effizienter Algorithmus]{effizienten Algorithmus}.
-			\item \textbf{polynomiale Reduzierbarkeit}\label{polyRed}: 
-				Geg.: Probleme $\Pi_1, \Pi_2$, Funktionen $f:\Pi_2\rightarrow\Pi_1$ und $g:L(\Pi_1)\rightarrow L(\Pi_2)$\\
-				$\Pi_2$ ist polynomial reduzierbar auf $\Pi_1$, gdw. $f$ und $g$ polynomial berechenbar sind
-			\item \textbf{$\mathcal{NP}$-schwer} \label{NPschwer}: falls jedes $\Pi'\in\mathcal{NP}$ \hyperref[polyRed]{pol. red.} auf $\Pi$ ist
-			\item \textbf{$\mathcal{NP}$-Vollständig} \label{NPvoll}: falls $\Pi$ $\mathcal{NP}$-schwer und $\Pi\in\mathcal{NP}$
-			\item \textbf{Greedy-Algorithmus} \label{greedy}: Greedy = gierig; Greedy-Prinzip: fixiere Variable die jetzt die größte Verbesserung darstellt\\
-				\includegraphics[scale =0.6]{AllgGreedy}
-			\item\textbf{Performance-Verhältnis} \label{Performance Verhaeltnis}: Probleminstanz $P\in \Pi$, Heuristik \\ $H \Rightarrow 		R_H(P)=\frac{z_H(P)}{z_{opt}(P)}$ 
-			\item \textbf{Performance Analysen}\label{Performance Analyse}: \\
-				\begin{itemize}
-					\item[worst-case:] schlechtestes Performance Verhältnis
-					\item[average-case:] durchschnittliches Performance Verhältnis über \underline{alle} Instanzen, via Wahrscheinlichkeitsverteilung, Erwartungswert und Varianz
-					\item[empirisch:] durchschnittliches Performance Verhältnis, maximale Abweichung und empirische Varianz über \underline{relevante} Instanzen
-				\end{itemize}
-			\item \textbf{$\epsilon$-Approximationsalgorithmus}\label{eApproxAlgo}: Für $\epsilon\ge 0$, Heuristik $H$. $H$ ist $\epsilon$-Approximationsalgorithmus gdw.
-				\begin{itemize}
-					\item $R_H \le 1- \epsilon$, für Minimierungsp.
-					\item $R_H \ge 1- \epsilon$, für Maximierungsp.
-				\end{itemize}
-			
-		\end{itemize}
-	
 	\section{Typische Probleme} \label{Standard Probleme}
 		\subsection{Matching}
 			Paarbildung von adjazenten Knoten in einem ungerichteten bewerteten Graphen\\
@@ -142,7 +84,7 @@
 			\subsubsection*{Gesucht:}
 				Partitionierung $P_1\cup\dots\cup P_k = \{1,\dots,n\}$ mit $P_i\cap P_j = \emptyset$ und $\sum_{j\in P_i} w_j \le C$ für ein minimales $k$.
 
-			\subsubsection{Greedy-Algorithmus}\label{BPGreedy}
+			\subsubsection*{Greedy-Algorithmus}\label{BPGreedy}
 			Unterscheide die versch. Strategien
 			\begin{itemize}
 				\item Weight Decreasing: absteigend nach Gewicht sortiert
@@ -161,7 +103,7 @@
 			\subsubsection*{Gesucht:}
 			Profit-maximale Teilmenge von Gegenständen, welche nicht schwerer ist als $C$
 			
-			\subsubsection{Greedy-Algorithmus}\label{KPGreedy}
+			\subsubsection*{Greedy-Algorithmus}\label{KPGreedy}
 			\includegraphics[scale=0.6]{KPGreedy}
 	\section{1. Kapitel - Einführung}
 	\begin{itemize}
@@ -182,6 +124,8 @@
 				\item Standort Planung
 				\item "Letzte Meile": Bezirkseinteilung und Postbotenrouten
 			\end{itemize}
+		\item \textbf{optimal} \label{optimal}\label{Optimum}: zulässig und bestmöglich
+		\item \textbf{Simulation} \label{Simulation}: Durchführung von Experimenten anhand von Modellen
 		\item Optimierung:
 			\begin{itemize}
 				\item exakt vs. heuristisch
@@ -193,17 +137,56 @@
 				\item Simulation zeigt nur Konsequenzen von Entscheidungen auf
 				\item Simulation macht keinen Entscheidungsvorschlag
 				\item Simulation gestattet nur den Vergleich von Alternativen
+			\end{itemize}		
+		\item \textbf{Heuristik} \label{Heuristik}: 
+			\begin{itemize}
+				\item[Def.:] Algorithmen die ein geg. Optimierungsproblem mit akzeptablem Aufwand in möglichst gut zu lösen versuchen
+				\item[Kennzeichen:] Ausschluss potentieller Lösungen, fehlende Lösungsgarantie, nicht-willkürliche Lösungssuche(, künstliche Stoppregel)
+				\item[Prinzipien] Allgemeinheit, Effizienz, Optimalität	\\
+				\begin{tikzpicture}
+				\node[rectangle, draw, rounded corners] (allg) {Allgemeinheit};
+				\node[rectangle, draw, rounded corners, below right = 3cm of allg] (opt) {Optimalität};
+				\node[rectangle, draw, rounded corners, above right = 3cm of opt] (eff) {Effizienz};
+				
+				\path[thick]
+				(allg) edge node[sloped, align = left] {exaktes\\ Verfahren} (opt)
+				(allg) edge node[anchor=south] {Heuristik} (eff)
+				(opt) edge node[sloped, align = left] {Verfahren für \\ spez. Instanz} (eff);
+				\end{tikzpicture}
+				\item[Klassifikation] nach Stopp-Regel:
+				\begin{enumerate}
+					\item[Eröffnungsv.] generieren einer (mögl. guten) Lösung. Terminierung sobald Lösung gefunden
+					\item[Verbesserungsv.] Start mit zulässiger Lösung und verbessern, bis Stopp-Krit. erfüllt ist
+					\item[Zsm.-gesezte V.] Kombination von Eröffnungs- und Verbesserungsv.
+				\end{enumerate} 
 			\end{itemize}
-		\item Die \hyperref[Standard Probleme]{Standard Probleme}
-		\item \hyperref[Algorithmus]{(exakte, effiziente) Algorithmen}
-		\item \hyperref[P]{$\mathcal{P}$}, \hyperref[NP]{$\mathcal{NP}$} und \hyperref[polyRed]{polynomiale Reduzierbarkeit}
-		\item Begriff der \hyperref[Heuristik]{Heuristik}
+		\item \textbf{Algorithmus} \label{Algorithmus}: 
+			\begin{itemize}
+				\item[Def.:] Ein Algorithmus ist eine genau definierte Verarbeitungsvorschrift zur Lösung eines Problems oder einer bestimmten Art von Problemen. Typischerweise wird ein Algorithmus durch eine endliche Folge von Anweisungen beschrieben, die nacheinander ausgeführt und oft in festgelegter Weise wiederholt werden
+				\item[Eig.:] eindeutig, allgemein, ausführbar, endlich
+			\end{itemize}
+		\item \textbf{exakter Algorithmus} \label{exakter Algorithmus}: ein \hyperref[Algorithmus]{Algorithmus}, welcher für jede Instanz
+			eines Optimierungsproblems ein \hyperref[Optimum]{Optimum} bestimmt
+		\item \textbf{Laufzeitkomplexität}: \hyperref[Algorithmus]{Alg. A} ist in $\mathcal{O}(f(n)) \text{, gdw } \exists k_1,k_2$ konst.,
+			sodass $\text{time}_A(P) \le k_1+k_2 f(n)$ für alle Instanzen $P$ mit $|P|=n$
+		\item \textbf{effizienter Algorithmus} \label{effizienter Algorithmus}: A ist effizient gdw $A \in \mathcal{O}(f(n))$
+		\item \textbf{$\mathcal{P}$} \label{P}: alle Probleme mit einem deterministischen 
+			\hyperref[effizienter Algorithmus]{effizienten Algorithmus}.
+		\item \textbf{$\mathcal{NP}$} \label{NP}: alle Probleme mit einem nicht-deterministischen
+			\hyperref[effizienter Algorithmus]{effizienten Algorithmus}.
+		\item \textbf{polynomiale Reduzierbarkeit}\label{polyRed}: 
+			Geg.: Probleme $\Pi_1, \Pi_2$, Funktionen $f:\Pi_2\rightarrow\Pi_1$ und $g:L(\Pi_1)\rightarrow L(\Pi_2)$\\
+			$\Pi_2$ ist polynomial reduzierbar auf $\Pi_1$, gdw. $f$ und $g$ polynomial berechenbar sind
+		\item \textbf{$\mathcal{NP}$-schwer} \label{NPschwer}: falls jedes $\Pi'\in\mathcal{NP}$ \hyperref[polyRed]{pol. red.} auf $\Pi$ ist
+		\item \textbf{$\mathcal{NP}$-Vollständig} \label{NPvoll}: falls $\Pi$ $\mathcal{NP}$-schwer und $\Pi\in\mathcal{NP}$
 	\end{itemize}
 
 	\section{2. Kapitel - Greedy Algorithmen}
 		\begin{itemize}
+			\item \textbf{Greedy-Algorithmus} \label{greedy}: Greedy = gierig; Greedy-Prinzip: fixiere Variable die jetzt die größte Verbesserung darstellt\\
+			\includegraphics[scale =0.6]{AllgGreedy}
 			\item Eröffnungsverfahren
-			\item \hyperref[greedy]{Allgemeine Greedy Algorithmen}, \hyperref[BPGreedy]{BPP-Greedy} and \hyperref[KPGreedy]{KP-Greedy}
+			\item \hyperref[BPGreedy]{BPP-Greedy} und \hyperref[KPGreedy]{KP-Greedy}
 			\item MST-Greedy Algorithmus: \\
 				\includegraphics[scale=0.6]{KruskalGreedy}
 			\item meinst \underline{nicht} optimal
@@ -214,14 +197,24 @@
 		\end{itemize}
 	\section{3. Kapitel - Lösungsqualität und Approximation}
 		\begin{itemize}
-			\item Def. des \hyperref[Performance Verhaeltnis]{Performance Verhältnis}
+			\item\textbf{Performance-Verhältnis} \label{Performance Verhaeltnis}: Probleminstanz $P\in \Pi$, Heuristik \\ 
+				$H \Rightarrow R_H(P)=\frac{z_H(P)}{z_{opt}(P)}$ 
 			\item wenn Performance Verhältnis = 1 für alle Instanzen von $P$ $\Rightarrow$ exakter Opt.-Algo.
 				\begin{itemize}
 					\item Minimierungsproblem: $R_H(P) \ge 1$
 					\item Maximierungsproblem: $R_H(P) \le 1$
 				\end{itemize}
-			\item \hyperref[Performance Analyse]{Performance Analyse}: worst-/average-case und empirische Analyse
-			\item \hyperref[eApproxAlgo]{$\epsilon$-Approximationsalgorithmen}
+			\item \textbf{Performance Analysen}\label{Performance Analyse}:
+				\begin{itemize}
+					\item[worst-case:] schlechtestes Performance Verhältnis
+					\item[average-case:] durchschnittliches Performance Verhältnis über \underline{alle} Instanzen, via Wahrscheinlichkeitsverteilung, Erwartungswert und Varianz
+					\item[empirisch:] durchschnittliches Performance Verhältnis, maximale Abweichung und empirische Varianz über \underline{relevante} Instanzen
+				\end{itemize}
+			\item \textbf{$\epsilon$-Approximationsalgorithmus}\label{eApproxAlgo}: Für $\epsilon\ge 0$, Heuristik $H$. $H$ ist $\epsilon$-Approximationsalgorithmus gdw.
+				\begin{itemize}
+					\item $R_H \le 1- \epsilon$, für Minimierungsp.
+					\item $R_H \ge 1- \epsilon$, für Maximierungsp.
+				\end{itemize}
 		\end{itemize}
 	\section{4. Kapitel - Lokale Suche}
 		\begin{itemize}

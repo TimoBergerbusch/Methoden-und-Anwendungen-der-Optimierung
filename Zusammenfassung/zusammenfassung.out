@@ -1,14 +1,11 @@
-\BOOKMARK [1][-]{section.1}{Fachbegriffe}{}% 1
-\BOOKMARK [1][-]{section.2}{Typische Probleme}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Matching}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Set-Packing/Covering/Partitioning}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Traveling-Salesman-Problem \(TSP\)}{section.2}% 5
-\BOOKMARK [3][-]{subsubsection.2.3.1}{Typische Distanzmatrixberechnung:}{subsection.2.3}% 6
-\BOOKMARK [2][-]{subsection.2.4}{Bin-Packing-Problem \(BPP\)}{section.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.4.1}{Greedy-Algorithmus}{subsection.2.4}% 8
-\BOOKMARK [2][-]{subsection.2.5}{Rucksackproblem \(KP\)}{section.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.5.1}{Greedy-Algorithmus}{subsection.2.5}% 10
-\BOOKMARK [1][-]{section.3}{1. Kapitel - Einf\374hrung}{}% 11
-\BOOKMARK [1][-]{section.4}{2. Kapitel - Greedy Algorithmen}{}% 12
-\BOOKMARK [1][-]{section.5}{3. Kapitel - L\366sungsqualit\344t und Approximation}{}% 13
-\BOOKMARK [1][-]{section.6}{4. Kapitel - Lokale Suche}{}% 14
+\BOOKMARK [1][-]{section.1}{Typische Probleme}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Matching}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Set-Packing/Covering/Partitioning}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Traveling-Salesman-Problem \(TSP\)}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Typische Distanzmatrixberechnung:}{subsection.1.3}% 5
+\BOOKMARK [2][-]{subsection.1.4}{Bin-Packing-Problem \(BPP\)}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.5}{Rucksackproblem \(KP\)}{section.1}% 7
+\BOOKMARK [1][-]{section.2}{1. Kapitel - Einf\374hrung}{}% 8
+\BOOKMARK [1][-]{section.3}{2. Kapitel - Greedy Algorithmen}{}% 9
+\BOOKMARK [1][-]{section.4}{3. Kapitel - L\366sungsqualit\344t und Approximation}{}% 10
+\BOOKMARK [1][-]{section.5}{4. Kapitel - Lokale Suche}{}% 11
