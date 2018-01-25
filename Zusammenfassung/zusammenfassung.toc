@@ -1,0 +1,15 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Fachbegriffe}{2}{section.1}
+\contentsline {section}{\numberline {2}Typische Probleme}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Matching}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Set-Packing/Covering/Partitioning}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Traveling-Salesman-Problem (TSP)}{5}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Typische Distanzmatrixberechnung:}{5}{subsubsection.2.3.1}
+\contentsline {subsection}{\numberline {2.4}Bin-Packing-Problem (BPP)}{5}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Greedy-Algorithmus}{5}{subsubsection.2.4.1}
+\contentsline {subsection}{\numberline {2.5}Rucksackproblem (KP)}{6}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}Greedy-Algorithmus}{6}{subsubsection.2.5.1}
+\contentsline {section}{\numberline {3}1. Kapitel - Einf\IeC {\"u}hrung}{6}{section.3}
+\contentsline {section}{\numberline {4}2. Kapitel - Greedy Algorithmen}{8}{section.4}
+\contentsline {section}{\numberline {5}3. Kapitel - L\IeC {\"o}sungsqualit\IeC {\"a}t und Approximation}{8}{section.5}
+\contentsline {section}{\numberline {6}4. Kapitel - Lokale Suche}{9}{section.6}
