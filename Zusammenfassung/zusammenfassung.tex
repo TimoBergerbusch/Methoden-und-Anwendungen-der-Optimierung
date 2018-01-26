@@ -27,6 +27,7 @@
 \newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
 \makeatother
 
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 \begin{document}
 	
@@ -260,4 +261,225 @@
 						(Wichtig: \texttt{bound} fängt den symmetrischen Fall ab und bedeutet soviel wie: wir müssen bereits mit der ersten Löschung min. die Hälfte der Einsparung machen)
 				\end{itemize}
 		\end{itemize}
+	\section{5. Kapitel - Metaheuristiken}
+		\subsection{Einführung}
+			\begin{itemize}
+				\item Anwendungsbereich: exakte Verfahren nicht mehr anwendbar
+				\item Eigenschaften: keine Optimalitätsgarantie, keine Aussage über Abweichung, akzeptable Lösungsgüte bei vernünftiger Laufzeit
+				\item vom lokalen zum globalen Optima, via: 
+					\begin{enumerate}
+						\item Multi-Start
+						\item Gedächtnis (Tabusuche) %TODO ref
+						\item Randomisierung (Simulated Annealing)
+						\item Pertubation (ILS, VND)
+					\end{enumerate}
+				\item "Def.": Strategien zum Steuern des Suchprozesses; unabhängig vom Problem; Konkretisierung $\Rightarrow$ Heuristik für spez. Optimierungsproblem
+				\item Klassifikation ähnlich wie \hyperref[Heuristik]{hier} mit Erweiterung:
+					\begin{itemize}
+						\item Zufall: determinitistisch vs. zufallsgesteuert
+						\item Gedächtnis: mit vs. ohne
+						\item natur-analog: der Natur nachempfunden vs. künstlich
+						\item Anzahl Lösungen: Nutzung einer Lösung vs. Population von Lösungen
+					\end{itemize}
+				\item Alternieren zwischen: Intensivierung und Diversifikation
+				\item Effiziente Datenstrukturen/Subalgorithmen wichtiger Bestandteil
+				\item Charakteristika:
+					\begin{itemize}
+						\item[Geschwindigkeit:]
+							\begin{itemize}
+								\item hängt von Planungsebene ab: strategisch vs. taktisch vs. operativ
+								\item Echtzeitumgebung, dynamische Planung
+								\item Interaktion
+							\end{itemize}
+						\item[Genauigkeit:]
+							\begin{itemize}
+								\item Abweichung von Optimallösung
+								\item Konsistenz: lieber immer (nur) gut als mal sehr gut mal sehr schlecht
+								\item[Problem:] Lösung durch genaues hinsehen schon verbesserbar
+								\item Lieber gute Lösung + stetige Verbesserung sichtbar, als einfach finale Lösung
+							\end{itemize}
+						\item[Einfachheit:]
+							\begin{itemize}
+								\item Verständlichkeit von der Grundidee
+								\item robust
+								\item vernünftige Anzahl aussagekräftiger Parameter
+							\end{itemize}
+						\item[Flexibilität:]
+							\begin{itemize}
+								\item Anpassung durch weitere NB verringern nicht/kaum die Güte
+							\end{itemize}
+					\end{itemize}
+			\end{itemize}
+
+		\subsection{Iterierte Lokale Suche (ILS)}
+			\subsubsection{Idee}
+				Suche auf der Menge der lokalen Minima.
+			\subsubsection{Algorithmus}
+					\includegraphics[scale=0.6]{ILS}\\
+					\begin{enumerate}
+						\item \texttt{LokaleSuche($x$)}: Verbesserung einer Lösung $x$ zu einem lokalen Optimum
+						\item \texttt{Pertubation($x$,historie)}: verwirbelt eine Lösung
+						\item \texttt{AkzeptanzKriterium($x$,$x'$,historie)}: akzeptiert $x'$ oder lässt $x$
+					\end{enumerate}
+			\subsubsection{Stärken}
+				\begin{itemize}
+					\item Gute Lösungsqualität mit einfacher Impl. (besser als zufällige Neustarts)
+					\item konzeptuell einfach und modularer Aufbau
+					\item Geschwindigkeit: besser als zufällige Neustarts
+				\end{itemize}
+			\subsubsection{Design}
+				\begin{itemize}
+					\item \textbf{Initiallösung}: Einfluss nimmt mit Länge des Suchverlaufs ab
+					\item \textbf{Lokale Suche}: gründliche LS liefert meist bessere Ergebnisse
+					\item \textbf{Pertubation}: 
+						\begin{itemize}
+							\setlength{\itemindent}{2cm}
+							\item[zu schwach:] wenig Diversifikation
+							\item[zu stark:] quasi zufällige Neustarts
+							\item Abstimmung mit LS: Güte und Geschwindigkeit
+						\end{itemize}
+					\item \textbf{Akzeptanzkriterium}
+						Oft basierend auf SA %TODO link zu Simulated Annealing
+				\end{itemize}
+		\subsection{Variable Neighborhood Descent (VND)}
+			\subsubsection{Idee}
+				Det. LS mit einer Folge von Nachbarschaften. Nur verbessernde Schritte und ende in lokalem Optimum bzgl. aller Nachbarschaften
+			\subsubsection{Algorithmus}
+				\includegraphics[scale=0.6]{VNS}
+				\begin{itemize}
+					\item[\texttt{$k_{max}=1$}] einfache ITS
+					\item Bei Maximierung ersetze "<" durch ">"
+%				\end{itemize}
+%			\subsubsection{Bemerkung:}
+%				\begin{itemize}
+					\item Wenn bessere Lösung $x''$ gefunden wurde starte wieder bei $\mathcal{N}_1$
+					\item Auswahl $x\in\mathcal{N}_k(x^t)$ sollte aufgrund einer Gleichverteilung erfolgen
+				\end{itemize}
+		\subsection{Tabu Search}\label{TabuSearch}
+			\subsubsection{Idee}
+				Gehe zur zur besten Nachbarlösung, welche mit den Tabu-Restriktionen vereinbar ist.
+			\subsubsection{attributives vs. explizites Gedächtnis}
+				\begin{tabular}{r|l l}
+					Name & attributiv 		& explizit \\ \hline
+					Speichern von: & einzelne Attribute einer Lösung(-sübergangs) & komplette Lösungen \\
+					Typische Elemente: 	& \tabitem Vorhanden sein eines Obj. in einer Lösung 	& Verwaltung von Elite-Lös.\\
+										& \tabitem Anzahl von Objekten							& \\
+										& \tabitem Austausch von Objekten 						&  test\\
+					Vorteil: 			& geringer Speicheraufwand								& kein Tabu für nicht \\
+										&														& besuchte Lösungen\\
+					Nachteil:			& mögl. tabu für nicht besuchte Lösung					& Speicheraufwendig
+				\end{tabular}
+			\subsubsection{Tabu Restriktionen}
+				\begin{tabular}{ c c l}
+					Nr. & Basis-Attribut & Tabu-Restriktion \\ \hline
+					1 & \texttt{Inc(i)} & Verbietet Verringern von $x_i$ auf 0 \\
+					2 & \texttt{Dec(j)} & Verbiete Erhöhen von $x_j$ auf 1 \\
+					3 & \texttt{Inc(i)} und \texttt{Dec(j)} & Verbietet Nr. 1 und/oder 2 \\
+					4 & \texttt{Swap(+i,-j)} & Verbietet Umkehrung \texttt{Swap(+j,-i)} \\
+					5 & \texttt{c($x'$)-c($x$)} & Verbietet mit Ziel-fkt Änderung \texttt{c($x$)-c($x'$)} \\
+					6 & \texttt{g($x'$)-g($x$)} & Verbietet Schritte mit Fkt Änderung \texttt{g($x$)-g($x'$)}
+				\end{tabular}
+				\begin{itemize}
+					\item restriktivere Tabu-Restriktionen tabuisieren mehr Nachbarlösungen
+					\item meist Versucht Inversion vom aktuellen zum vorherigen zu vermeiden
+					\item Gedächtnis genutzt um Zyklen zu vermeiden
+				\end{itemize}
+			\subsubsection{Kurzzeitgedächtnis}	
+				\begin{itemize}
+					\item 
+						\begin{enumerate}
+							\item Füge neue Restriktionen in eine Liste der Länge $k$ ein
+							\item Sind bereits alle $k$ Elemente genutzt lösche das "älteste" und füge die neuen hinzu
+						\end{enumerate}
+					\item zu kleines $k$ $\rightarrow$ höheres Zyklen-Risiko
+					\item zu  großes $k$ $\rightarrow$ zu starke Einschränkung
+				\end{itemize}
+			\subsubsection{Anspruchskriterium}
+				\begin{center}
+					Wenn alle Nachbarlösungen tabu $\rightarrow$ wähle eine, welche tabu ist
+				\end{center}
+				\begin{tabular}{c l l}
+					 & Anspruchskriterium & Bedeutung \\ \hline
+					\tabitem & Anspruch bei Ermangelung & falls alle tabu, wähle die, die ''am wenigsten" tabu ist \\
+					\tabitem & Anspruch durch Ziel- & falls der Zielfunktionswert besser ist als der bisher beste Wert\\
+					 & funktionswert & ist die Lösung nicht mehr tabu. \\
+					\tabitem & Anspruch durch & falls Restriktion gesetzt während Verbesserung und\\
+					 & Suchrichtung &  tabuisierte erneut Verbesserung $\rightarrow$ hebe Restriktion auf\\
+				\end{tabular}
+			\subsubsection{Algorithmus}
+				\includegraphics[scale=0.6]{TabuSearch}	
+				\begin{itemize}
+					\item als Lokale Suche meist Bestensuche $\rightarrow$ aggressive Suche
+					\item Nachbarschaft kann im Laufe variiert werden
+					\item beste Lösung immer explizit speichern
+					\item Bewertungsfunktion kann von Zfkt. abweichen (Strafkosten, Einfluss auf Struktur)
+				\end{itemize}
+				
+	\section{Large Neighboorhood Search (LNS)}
+		Alternative Namen: Ruin and Recreate, Fix and Optimize
+		\subsection{Idee}
+			Graduelle Verbesserung einer Lösung durch Destroy- (entfernen eines Teils) und Repair- (bauen entfernte anders wieder auf) Operatoren.
+			
+		\subsection{Algorithmus}
+			\includegraphics[scale=0.6]{LNS}
+			\begin{itemize}
+				\item Zufall: versch. Teile der Lösung zerstören $\rightarrow$ Diversifikation
+				\item Zerstörungsgrad:
+					\begin{itemize}
+						\item zu gering $\rightarrow$ keine Exploration des Lösungsraums
+						\item zu hoch $\rightarrow$ zeitaufwendig und wenig erfolgversprechend
+					\end{itemize}
+			\end{itemize}
+		\subsection{Destroy-Operatoren}
+			\begin{tabular}{l l l}
+				Name & Beschreibung & Effekt \\ \hline
+				Random Destroy & Entferen zufällige Elemente & Diversifikation \\
+				Worst/Critial Destroy & Entferne teuersten Elemente & Intensivierung \\
+				Related Destroy & Entferne leicht austauschbare Elemente & Intensivierung \\
+				Small Removal & Entferne Variablen mit geringen Koeff. & Intensivierung \\
+				History-Based Destroy & Entferne Elemente die Teil einer & Diversifikation\\
+				& schlechter Lösungen waren & 				
+			\end{tabular}
+		\subsection{Repair-Operatoren}
+			\begin{itemize}
+				\item \hyperref[greedy]{Greedy Heuristiken}: iterativ bestmögliche Wahl \\
+					Problem: Wahlmöglichkeiten in späteren Iterationen
+				\item Regret Heuristiken: maximale Differenz zwischen bester Einfügemöglichkeit und $k$-bester
+				\item Relaxierte exakte Verfahren: Beschleunigung
+				\item Exakte Verfahren: schnell gute Lösungen, keine Diversifikation
+				\item Lokale Suche
+			\end{itemize}
+	\section{Adaptive Neighborhood Search (ALNS)}
+		\subsection{Idee}
+			Anwenden von mehreren gewichteten Destroy- und Repair-Operatoren, mit dynamischer Gewichtsanpassung basierend auf vorherigen Iterationen
+		\subsubsection{Algorithmus}
+			\includegraphics[scale=0.6]{ALNS}
+			\begin{itemize}
+				\item robust durch adaptiven Mechanismus
+				\item keine explizite Nachbarschafts Auswahl nötig
+			\end{itemize}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

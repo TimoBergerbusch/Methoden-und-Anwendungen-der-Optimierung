@@ -9,3 +9,28 @@
 \BOOKMARK [1][-]{section.3}{2. Kapitel - Greedy Algorithmen}{}% 9
 \BOOKMARK [1][-]{section.4}{3. Kapitel - L\366sungsqualit\344t und Approximation}{}% 10
 \BOOKMARK [1][-]{section.5}{4. Kapitel - Lokale Suche}{}% 11
+\BOOKMARK [1][-]{section.6}{5. Kapitel - Metaheuristiken}{}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Einf\374hrung}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.2}{Iterierte Lokale Suche \(ILS\)}{section.6}% 14
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Idee}{subsection.6.2}% 15
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Algorithmus}{subsection.6.2}% 16
+\BOOKMARK [3][-]{subsubsection.6.2.3}{St\344rken}{subsection.6.2}% 17
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Design}{subsection.6.2}% 18
+\BOOKMARK [2][-]{subsection.6.3}{Variable Neighborhood Descent \(VND\)}{section.6}% 19
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Idee}{subsection.6.3}% 20
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Algorithmus}{subsection.6.3}% 21
+\BOOKMARK [2][-]{subsection.6.4}{Tabu Search}{section.6}% 22
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Idee}{subsection.6.4}% 23
+\BOOKMARK [3][-]{subsubsection.6.4.2}{attributives vs. explizites Ged\344chtnis}{subsection.6.4}% 24
+\BOOKMARK [3][-]{subsubsection.6.4.3}{Tabu Restriktionen}{subsection.6.4}% 25
+\BOOKMARK [3][-]{subsubsection.6.4.4}{Kurzzeitged\344chtnis}{subsection.6.4}% 26
+\BOOKMARK [3][-]{subsubsection.6.4.5}{Anspruchskriterium}{subsection.6.4}% 27
+\BOOKMARK [3][-]{subsubsection.6.4.6}{Algorithmus}{subsection.6.4}% 28
+\BOOKMARK [1][-]{section.7}{Large Neighboorhood Search \(LNS\)}{}% 29
+\BOOKMARK [2][-]{subsection.7.1}{Idee}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.2}{Algorithmus}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.3}{Destroy-Operatoren}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.4}{Repair-Operatoren}{section.7}% 33
+\BOOKMARK [1][-]{section.8}{Adaptive Neighborhood Search \(ALNS\)}{}% 34
+\BOOKMARK [2][-]{subsection.8.1}{Idee}{section.8}% 35
+\BOOKMARK [3][-]{subsubsection.8.1.1}{Algorithmus}{subsection.8.1}% 36
