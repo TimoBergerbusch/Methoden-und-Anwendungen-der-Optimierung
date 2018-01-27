@@ -19,18 +19,31 @@
 \BOOKMARK [2][-]{subsection.6.3}{Variable Neighborhood Descent \(VND\)}{section.6}% 19
 \BOOKMARK [3][-]{subsubsection.6.3.1}{Idee}{subsection.6.3}% 20
 \BOOKMARK [3][-]{subsubsection.6.3.2}{Algorithmus}{subsection.6.3}% 21
-\BOOKMARK [2][-]{subsection.6.4}{Tabu Search}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.4}{Variable Neighborhood Search \(VNS\)}{section.6}% 22
 \BOOKMARK [3][-]{subsubsection.6.4.1}{Idee}{subsection.6.4}% 23
-\BOOKMARK [3][-]{subsubsection.6.4.2}{attributives vs. explizites Ged\344chtnis}{subsection.6.4}% 24
-\BOOKMARK [3][-]{subsubsection.6.4.3}{Tabu Restriktionen}{subsection.6.4}% 25
-\BOOKMARK [3][-]{subsubsection.6.4.4}{Kurzzeitged\344chtnis}{subsection.6.4}% 26
-\BOOKMARK [3][-]{subsubsection.6.4.5}{Anspruchskriterium}{subsection.6.4}% 27
-\BOOKMARK [3][-]{subsubsection.6.4.6}{Algorithmus}{subsection.6.4}% 28
-\BOOKMARK [1][-]{section.7}{Large Neighboorhood Search \(LNS\)}{}% 29
-\BOOKMARK [2][-]{subsection.7.1}{Idee}{section.7}% 30
-\BOOKMARK [2][-]{subsection.7.2}{Algorithmus}{section.7}% 31
-\BOOKMARK [2][-]{subsection.7.3}{Destroy-Operatoren}{section.7}% 32
-\BOOKMARK [2][-]{subsection.7.4}{Repair-Operatoren}{section.7}% 33
-\BOOKMARK [1][-]{section.8}{Adaptive Neighborhood Search \(ALNS\)}{}% 34
-\BOOKMARK [2][-]{subsection.8.1}{Idee}{section.8}% 35
-\BOOKMARK [3][-]{subsubsection.8.1.1}{Algorithmus}{subsection.8.1}% 36
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Algorithmus}{subsection.6.4}% 24
+\BOOKMARK [2][-]{subsection.6.5}{Tabu Search}{section.6}% 25
+\BOOKMARK [3][-]{subsubsection.6.5.1}{Idee}{subsection.6.5}% 26
+\BOOKMARK [3][-]{subsubsection.6.5.2}{attributives vs. explizites Ged\344chtnis}{subsection.6.5}% 27
+\BOOKMARK [3][-]{subsubsection.6.5.3}{Tabu Restriktionen}{subsection.6.5}% 28
+\BOOKMARK [3][-]{subsubsection.6.5.4}{Kurzzeitged\344chtnis}{subsection.6.5}% 29
+\BOOKMARK [3][-]{subsubsection.6.5.5}{Anspruchskriterium}{subsection.6.5}% 30
+\BOOKMARK [3][-]{subsubsection.6.5.6}{Algorithmus}{subsection.6.5}% 31
+\BOOKMARK [2][-]{subsection.6.6}{Large Neighboorhood Search \(LNS\)}{section.6}% 32
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Idee}{subsection.6.6}% 33
+\BOOKMARK [3][-]{subsubsection.6.6.2}{Algorithmus}{subsection.6.6}% 34
+\BOOKMARK [3][-]{subsubsection.6.6.3}{Destroy-Operatoren}{subsection.6.6}% 35
+\BOOKMARK [3][-]{subsubsection.6.6.4}{Repair-Operatoren}{subsection.6.6}% 36
+\BOOKMARK [2][-]{subsection.6.7}{Adaptive Neighborhood Search \(ALNS\)}{section.6}% 37
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Idee}{subsection.6.7}% 38
+\BOOKMARK [3][-]{subsubsection.6.7.2}{Algorithmus}{subsection.6.7}% 39
+\BOOKMARK [2][-]{subsection.6.8}{Genetische Algorithmen}{section.6}% 40
+\BOOKMARK [3][-]{subsubsection.6.8.1}{Ablauf}{subsection.6.8}% 41
+\BOOKMARK [3][-]{subsubsection.6.8.2}{Schl\374sselfaktoren}{subsection.6.8}% 42
+\BOOKMARK [3][-]{subsubsection.6.8.3}{Repr\344sentation f\374r das TSP}{subsection.6.8}% 43
+\BOOKMARK [3][-]{subsubsection.6.8.4}{Crossover}{subsection.6.8}% 44
+\BOOKMARK [2][-]{subsection.6.9}{Simulated Annealing \(SA\)}{section.6}% 45
+\BOOKMARK [3][-]{subsubsection.6.9.1}{Idee}{subsection.6.9}% 46
+\BOOKMARK [3][-]{subsubsection.6.9.2}{Metropolis}{subsection.6.9}% 47
+\BOOKMARK [3][-]{subsubsection.6.9.3}{Simmulated Annealing}{subsection.6.9}% 48
+\BOOKMARK [3][-]{subsubsection.6.9.4}{Verwandte Methoden zu SA}{subsection.6.9}% 49
