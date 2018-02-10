@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{amsfonts, amssymb}
+\usepackage{amsfonts, amssymb, amsmath}
 \usepackage{msc}
 \usepackage{tikz}
 	\usetikzlibrary{arrows, automata,positioning}
@@ -73,6 +73,9 @@
 			\subsubsection*{Gesucht:}
 			kostenminimale Hamilton-Tour
 			
+			\subsubsection*{LP:}
+				\includegraphics[scale=0.6]{TSPLP}
+			
 			\subsubsection{Typische Distanzmatrixberechnung:}
 			Euklidische Distanz: $d_{i,j}=\sqrt{(x_i-x_j)^2+(y_i-y_j)^2}$ \\
 			Manhattan-Distanz: $d_{i,j}=|x_i-x_j|+|y_i+y_j|$
@@ -84,6 +87,9 @@
 				\end{itemize}
 			\subsubsection*{Gesucht:}
 				Partitionierung $P_1\cup\dots\cup P_k = \{1,\dots,n\}$ mit $P_i\cap P_j = \emptyset$ und $\sum_{j\in P_i} w_j \le C$ für ein minimales $k$.
+			
+			\subsubsection*{LP:}
+				\includegraphics*[scale=0.6]{BPLP}
 
 			\subsubsection*{Greedy-Algorithmus}\label{BPGreedy}
 			Unterscheide die versch. Strategien
@@ -103,6 +109,9 @@
 			
 			\subsubsection*{Gesucht:}
 			Profit-maximale Teilmenge von Gegenständen, welche nicht schwerer ist als $C$
+			
+			\subsubsection*{LP:}
+				\includegraphics*[scale=0.6]{KSLP}
 			
 			\subsubsection*{Greedy-Algorithmus}\label{KPGreedy}
 			\includegraphics[scale=0.6]{KPGreedy}
@@ -213,7 +222,7 @@
 				\end{itemize}
 			\item \textbf{$\epsilon$-Approximationsalgorithmus}\label{eApproxAlgo}: Für $\epsilon\ge 0$, Heuristik $H$. $H$ ist $\epsilon$-Approximationsalgorithmus gdw.
 				\begin{itemize}
-					\item $R_H \le 1- \epsilon$, für Minimierungsp.
+					\item $R_H \le 1+ \epsilon$, für Minimierungsp.
 					\item $R_H \ge 1- \epsilon$, für Maximierungsp.
 				\end{itemize}
 		\end{itemize}
